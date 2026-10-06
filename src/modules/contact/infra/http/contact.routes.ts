@@ -25,5 +25,6 @@ export const contactRoutes = Router();
 contactRoutes.post('/', validateDTO(CreateContactDTO), contactController.create);
 contactRoutes.get('/', contactController.findMany);
 contactRoutes.get('/:id', contactController.findById);
-contactRoutes.put('/:id', validateDTO(UpdateContactDTO), contactController.update);
+contactRoutes.put('/:id', validateDTO(CreateContactDTO), contactController.update);
+contactRoutes.patch('/:id', validateDTO(UpdateContactDTO), contactController.update);
 contactRoutes.delete('/:id', contactController.delete);

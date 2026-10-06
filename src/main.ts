@@ -13,6 +13,15 @@ async function bootstrap() {
   app.use(cors());
   app.use(express.json());
 
+  app.get('/', (req, res) => {
+    res.json({
+      status: 'online',
+      service: process.env.K_SERVICE ?? 'local',
+      revision: process.env.K_REVISION ?? 'local',
+      timestamp: new Date().toISOString(),
+    });
+  });
+
   app.use('/api/contact', contactRoutes);
 
   app.use(errorHandler);
