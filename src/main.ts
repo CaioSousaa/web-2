@@ -16,8 +16,8 @@ async function bootstrap() {
   app.get('/', (req, res) => {
     res.json({
       status: 'online',
-      service: process.env.K_SERVICE ?? 'local',
-      revision: process.env.K_REVISION ?? 'local',
+      service: process.env.RENDER_SERVICE_NAME ?? process.env.K_SERVICE ?? 'local',
+      revision: process.env.RENDER_GIT_COMMIT ?? process.env.K_REVISION ?? 'local',
       timestamp: new Date().toISOString(),
     });
   });
